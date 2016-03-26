@@ -1041,10 +1041,10 @@ public class Micropolis
 	{
 		for (int x = 0; x < movieTime.length; x++){
 			for (int y = 0; y < movieTime[x].length; y++){
-				if (getTile(x,y) == MOVIETHEATER) {
+				if (getTile(y,x) == MOVIETHEATER) {
 					movieTime[x][y] += 1;
 					movieEffect += (movieInitial - (movieTime[x][y] *100));
-				} else if (getTile(x,y) == FASTFOOD) {
+				} else if (getTile(y,x) == FASTFOOD) {
 					fastfoodTime[x][y] += 1;
 					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
 				}
