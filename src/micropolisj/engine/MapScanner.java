@@ -43,7 +43,9 @@ class MapScanner extends TileBehavior
 		AIRPORT,
 		SEAPORT,
 		MOVIETHEATER,
-		FASTFOOD;
+		MOVIETHEATERD,
+		FASTFOOD,
+		FASTFOODD;
 	}
 
 	@Override
@@ -89,8 +91,14 @@ class MapScanner extends TileBehavior
 		case MOVIETHEATER:
 			doMovieTheater();
 			return;
+		case MOVIETHEATERD:
+			doMovieTheaterD();
+			return;
 		case FASTFOOD:
 			doFastFood();
+			return;
+		case FASTFOODD:
+			doFastFoodD();
 			return;
 		default:
 			assert false;
@@ -607,16 +615,54 @@ class MapScanner extends TileBehavior
 				if ((city.cityTime % 26) == 0) { //Every 52 weeks
 					city.entertainmentScan();
 				}
+				if ((city.movieTime[xpos][ypos]) > 5 ) {
+					drawStadium(MOVIETHEATERD);
+					city.setTile(xpos+1,ypos, (char)(MOVIETHEATERD));
+				}
 			}
 		 
 	 }
 	 
-	// Called when the current tile is the key tile of a movie theater
+	 void doMovieTheaterD() {
+		 
+		 boolean powerOn = checkZonePower();
+			if ((city.cityTime % 16) == 0) {
+				repairZone(MOVIETHEATERD, 4);
+			}
+			if (powerOn)
+			{
+				if ((city.cityTime % 26) == 0) { //Every 52 weeks
+					city.entertainmentScan();
+				}
+			}
+		 
+	 }
+	 
+	// Called when the current tile is the key tile of a fast food
 		 void doFastFood() {
 			 
 			 boolean powerOn = checkZonePower();
 				if ((city.cityTime % 16) == 0) {
 					repairZone(FASTFOOD, 4);
+				}
+				if (powerOn)
+				{
+					if ((city.cityTime % 26) == 0) { //Every 52 weeks
+						city.entertainmentScan();
+					}
+					if ((city.fastfoodTime[xpos][ypos]) > 1 ) {
+						drawStadium(FASTFOODD);
+						//city.setTile(xpos+1,ypos, (char)(FASTFOODD));
+					}
+				}
+			 
+		 }
+		 
+		 void doFastFoodD() {
+			 
+			 boolean powerOn = checkZonePower();
+				if ((city.cityTime % 16) == 0) {
+					repairZone(FASTFOODD, 4);
 				}
 				if (powerOn)
 				{

@@ -31,7 +31,9 @@ public enum MicropolisTool
 	AIRPORT(6, 10000),
 	QUERY(1, 0),
 	MOVIETHEATER(4, 1000),
-	FASTFOOD(4, 1000);
+	FASTFOOD(4, 1000),
+	MOVIETHEATERD(4, 1000),
+	FASTFOODD(4, 1000);
 
 	int size;
 	int cost;
@@ -72,6 +74,8 @@ public enum MicropolisTool
 		case AIRPORT:
 		case MOVIETHEATER:
 		case FASTFOOD:
+		case MOVIETHEATERD:
+		case FASTFOODD:
 			return new BuildingTool(engine, this, xpos, ypos);
 
 		default:

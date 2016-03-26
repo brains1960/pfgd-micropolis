@@ -1041,10 +1041,10 @@ public class Micropolis
 	{
 		for (int x = 0; x < movieTime.length; x++){
 			for (int y = 0; y < movieTime[x].length; y++){
-				if (getTile(y,x) == MOVIETHEATER) {
+				if (getTile(y,x) == MOVIETHEATER || getTile(y,x) == MOVIETHEATERD) {
 					movieTime[x][y] += 1;
 					movieEffect += (movieInitial - (movieTime[x][y] *100));
-				} else if (getTile(y,x) == FASTFOOD) {
+				} else if (getTile(y,x) == FASTFOOD || getTile(y,x) == FASTFOODD) {
 					fastfoodTime[x][y] += 1;
 					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
 				}
@@ -1506,6 +1506,8 @@ public class Micropolis
 		bb.put("SEAPORT", new MapScanner(this, MapScanner.B.SEAPORT));
 		bb.put("MOVIETHEATER", new MapScanner(this, MapScanner.B.MOVIETHEATER));
 		bb.put("FASTFOOD", new MapScanner(this, MapScanner.B.FASTFOOD));
+		bb.put("MOVIETHEATERD", new MapScanner(this, MapScanner.B.MOVIETHEATERD));
+		bb.put("FASTFOOD", new MapScanner(this, MapScanner.B.FASTFOODD));
 
 		this.tileBehaviors = bb;
 	}
