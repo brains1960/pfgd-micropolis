@@ -135,8 +135,8 @@ public class TileConstants
 	static final char STADIUM = 784;
 	static final char FULLSTADIUM = 800;
 	static final char NUCLEAR = 816;
-	static final char MOVIETHEATER = 964; //Center tile of building
-	static final char FASTFOOD = 973; //Center tile of building
+	static final char MOVIETHEATER = 972; //Center tile of building
+	static final char FASTFOOD = 997; //Center tile of building
 	static final char LASTZONE = 826;
 	public static final char LIGHTNINGBOLT = 827;
 	static final char HBRDG0 = 828;   //draw bridge tiles (horz)
@@ -152,7 +152,7 @@ public class TileConstants
 	static final char VBRDG1 = 949;
 	static final char VBRDG2 = 950;
 	static final char VBRDG3 = 951;
-	public static final char LAST_TILE = 956; //first tile of last building
+	public static final char LAST_TILE = 985; //first tile of last building
 
 	static final char [] RoadTable = new char[] {
 		ROADS, ROADS2, ROADS, ROADS3,
