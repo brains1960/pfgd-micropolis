@@ -70,6 +70,8 @@ public enum MicropolisTool
 		case POWERPLANT:
 		case NUCLEAR:
 		case AIRPORT:
+		case MOVIETHEATER:
+		case FASTFOOD:
 			return new BuildingTool(engine, this, xpos, ypos);
 
 		default:
