@@ -187,6 +187,11 @@ public class Micropolis
 	int floodCnt; //number of turns the flood will last
 	int floodX;
 	int floodY;
+	
+	int movieInitial = 300; // initial effect on cityScore
+	int fastfoodInitial = 100; //initial effect on cityScore
+	int movieEffect;
+	int fastfoodEffect;
 
 	public int cityTime;  //counts "weeks" (actually, 1/48'ths years)
 	int scycle; //same as cityTime, except mod 1024
@@ -649,6 +654,7 @@ public class Micropolis
 
 		case 12:
 			ptlScan();
+			entertainmentScan();
 			break;
 
 		case 13:
@@ -1037,8 +1043,10 @@ public class Micropolis
 			for (int y = 0; y < movieTime[x].length; y++){
 				if (getTile(x,y) == MOVIETHEATER) {
 					movieTime[x][y] += 1;
+					movieEffect += (movieInitial - (movieTime[x][y] *100));
 				} else if (getTile(x,y) == FASTFOOD) {
 					fastfoodTime[x][y] += 1;
+					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
 				}
 				
 			}
@@ -1216,7 +1224,7 @@ public class Micropolis
 				{
 					//land value equation
 
-
+                   
 					int dis = 34 - getDisCC(x, y);
 					dis *= 4;
 					dis += terrainMem[y/2][x/2];

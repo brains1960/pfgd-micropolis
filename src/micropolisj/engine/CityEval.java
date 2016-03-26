@@ -263,6 +263,8 @@ public class CityEval
 		z *= SM;
 
 		z = clamp(z, 0, 1000);
+		z += 2*engine.movieEffect;
+		z += 2*engine.fastfoodEffect;
 
 		cityScore = (int)Math.round((cityScore + z) / 2.0);
 		deltaCityScore = cityScore - oldCityScore;
