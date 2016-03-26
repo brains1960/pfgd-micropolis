@@ -27,6 +27,8 @@ public class Micropolis
 	// full size arrays
 	char [][] map;
 	boolean [][] powerMap;
+	int [][] movieTime; //Says how many years a movie theater has been built for
+	int [][] fastfoodTime; //Says how many years a fast food place has been built for
 
 	// half-size arrays
 
@@ -90,7 +92,7 @@ public class Micropolis
 	/** For each 8x8 section of city, this is an integer between 0 and 64,
 	 * with higher numbers being closer to the center of the city. */
 	int [][] comRate;
-
+	
 	static final int DEFAULT_WIDTH = 120;
 	static final int DEFAULT_HEIGHT = 100;
 
@@ -231,11 +233,14 @@ public class Micropolis
 		crimeMem = new int[hY][hX];
 		popDensity = new int[hY][hX];
 		trfDensity = new int[hY][hX];
+		
 
 		int qX = (width+3)/4;
 		int qY = (height+3)/4;
 
 		terrainMem = new int[qY][qX];
+		movieTime = new int[qY][qX];
+		fastfoodTime = new int[qY][qX];
 
 		int smX = (width+7)/8;
 		int smY = (height+7)/8;
@@ -545,6 +550,14 @@ public class Micropolis
 				fireStMap[y][x] = 0;
 				policeMap[y][x] = 0;
 			}
+		}
+		
+		for (int y = 0; y < movieTime.length; y++) {
+			for (int x = 0; x< movieTime[y].length; x++) {
+				movieTime[y][x] = 0;
+				fastfoodTime[y][x] = 0;
+			}
+			
 		}
 	}
 
@@ -1467,6 +1480,8 @@ public class Micropolis
 		bb.put("STADIUM_FULL", new MapScanner(this, MapScanner.B.STADIUM_FULL));
 		bb.put("AIRPORT", new MapScanner(this, MapScanner.B.AIRPORT));
 		bb.put("SEAPORT", new MapScanner(this, MapScanner.B.SEAPORT));
+		bb.put("MOVIETHEATER", new MapScanner(this, MapScanner.B.MOVIETHEATER));
+		bb.put("FASTFOOD", new MapScanner(this, MapScanner.B.FASTFOOD));
 
 		this.tileBehaviors = bb;
 	}
