@@ -30,8 +30,8 @@ public enum MicropolisTool
 	NUCLEAR(4, 5000),
 	AIRPORT(6, 10000),
 	QUERY(1, 0),
-	MOVIETHEATER(3, 1000),
-	FASTFOOD(3, 1000);
+	MOVIETHEATER(4, 1000),
+	FASTFOOD(4, 1000);
 
 	int size;
 	int cost;

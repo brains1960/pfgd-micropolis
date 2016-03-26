@@ -10,6 +10,7 @@ package micropolisj.engine;
 
 import static micropolisj.engine.TileConstants.*;
 import static micropolisj.engine.TrafficGen.ZoneType;
+import static micropolisj.engine.Micropolis.*;
 
 /**
  * Process individual tiles of the map for each cycle.
@@ -41,7 +42,9 @@ class MapScanner extends TileBehavior
 		STADIUM_EMPTY,
 		STADIUM_FULL,
 		AIRPORT,
-		SEAPORT;
+		SEAPORT,
+		MOVIETHEATER,
+		FASTFOOD;
 	}
 
 	@Override
@@ -83,6 +86,12 @@ class MapScanner extends TileBehavior
 			return;
 		case SEAPORT:
 			doSeaport();
+			return;
+		case MOVIETHEATER:
+			doMovieTheater();
+			return;
+		case FASTFOOD:
+			doFastFood();
 			return;
 		default:
 			assert false;
@@ -586,6 +595,39 @@ class MapScanner extends TileBehavior
 			}
 		}
 	}
+	
+	// Called when the current tile is the key tile of a movie theater
+	 void doMovieTheater() {
+		 
+		 boolean powerOn = checkZonePower();
+			if ((city.cityTime % 16) == 0) {
+				repairZone(MOVIETHEATER, 4);
+			}
+			if (powerOn)
+			{
+				if ((city.cityTime % 26) == 0) { //Every 52 weeks
+					city.entertainmentScan();
+				}
+			}
+		 
+	 }
+	 
+	// Called when the current tile is the key tile of a movie theater
+		 void doFastFood() {
+			 
+			 boolean powerOn = checkZonePower();
+				if ((city.cityTime % 16) == 0) {
+					repairZone(FASTFOOD, 4);
+				}
+				if (powerOn)
+				{
+					if ((city.cityTime % 26) == 0) { //Every 52 weeks
+						city.entertainmentScan();
+					}
+				}
+			 
+		 }
+	 
 
 	/**
 	 * Consider the value of building a single-lot house at certain

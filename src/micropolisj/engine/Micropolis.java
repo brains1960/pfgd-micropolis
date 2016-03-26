@@ -224,6 +224,8 @@ public class Micropolis
 	{
 		map = new char[height][width];
 		powerMap = new boolean[height][width];
+		movieTime = new int[height][width];
+		fastfoodTime = new int[height][width];
 
 		int hX = (width+1)/2;
 		int hY = (height+1)/2;
@@ -239,8 +241,6 @@ public class Micropolis
 		int qY = (height+3)/4;
 
 		terrainMem = new int[qY][qX];
-		movieTime = new int[qY][qX];
-		fastfoodTime = new int[qY][qX];
 
 		int smX = (width+7)/8;
 		int smY = (height+7)/8;
@@ -1029,6 +1029,22 @@ public class Micropolis
 			return true;
 		}
 		return false;
+	}
+	
+	public void entertainmentScan()
+	{
+		for (int x = 0; x < movieTime.length; x++){
+			for (int y = 0; y < movieTime[x].length; y++){
+				if (getTile(x,y) == MOVIETHEATER) {
+					movieTime[x][y] += 1;
+				} else if (getTile(x,y) == FASTFOOD) {
+					fastfoodTime[x][y] += 1;
+				}
+				
+			}
+			
+		}
+		
 	}
 
 	void powerScan()
@@ -2715,4 +2731,5 @@ public class Micropolis
 	{
 		budget.totalFunds = totalFunds;
 	}
+
 }
