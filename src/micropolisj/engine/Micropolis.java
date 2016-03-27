@@ -1047,16 +1047,16 @@ public class Micropolis
 					if (movieTime[x][y] > 5 ) { 
 						setTile(y,x,MOVIETHEATERD);
 					}
-					if(movieTime[x][y] == 5) {
+					if(movieTime[x][y] == 6) {
 						sendMessageAt(MicropolisMessage.VANDALISED_MOVIE,x,y);
 					}
 				} else if (getTile(y,x) == FASTFOOD || getTile(y,x) == FASTFOODD) {
 					fastfoodTime[x][y] += 1;
 					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
-					if (fastfoodTime[x][y] > 1) { 
+					if (fastfoodTime[x][y] > 5) { 
 						setTile(y,x,FASTFOODD);
 					}
-					if(movieTime[x][y] == 1) {
+					if(movieTime[x][y] == 6) {
 						sendMessageAt(MicropolisMessage.VANDALISED_FASTFOOD,x,y);
 					}
 				}

@@ -638,7 +638,7 @@ class MapScanner extends TileBehavior
 		 void doFastFood() {
 			 
 			 boolean powerOn = checkZonePower();
-				if ((city.cityTime % 16) == 0) {
+				if ((city.cityTime % 26) == 0) {
 					repairZone(FASTFOOD, 4);
 				}
 				if (powerOn)
@@ -653,7 +653,7 @@ class MapScanner extends TileBehavior
 		 void doFastFoodD() {
 			 
 			 boolean powerOn = checkZonePower();
-				if ((city.cityTime % 16) == 0) {
+				if ((city.cityTime % 26) == 0) {
 					repairZone(FASTFOODD, 4);
 				}
 				if (powerOn)
