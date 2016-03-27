@@ -654,7 +654,7 @@ public class Micropolis
 
 		case 12:
 			ptlScan();
-			entertainmentScan();
+			if (scycle % 26 == 0) {entertainmentScan();}
 			break;
 
 		case 13:
@@ -1050,7 +1050,7 @@ public class Micropolis
 				} else if (getTile(y,x) == FASTFOOD || getTile(y,x) == FASTFOODD) {
 					fastfoodTime[x][y] += 1;
 					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
-					if (fastfoodTime[x][y] > 5 ) { 
+					if (fastfoodTime[x][y] > 1) { 
 						setTile(y,x,FASTFOODD);
 						}
 				}
@@ -1513,7 +1513,7 @@ public class Micropolis
 		bb.put("MOVIETHEATER", new MapScanner(this, MapScanner.B.MOVIETHEATER));
 		bb.put("FASTFOOD", new MapScanner(this, MapScanner.B.FASTFOOD));
 		bb.put("MOVIETHEATERD", new MapScanner(this, MapScanner.B.MOVIETHEATERD));
-		bb.put("FASTFOOD", new MapScanner(this, MapScanner.B.FASTFOODD));
+		bb.put("FASTFOODD", new MapScanner(this, MapScanner.B.FASTFOODD));
 
 		this.tileBehaviors = bb;
 	}

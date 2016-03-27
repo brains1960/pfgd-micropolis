@@ -643,7 +643,7 @@ class MapScanner extends TileBehavior
 				}
 				if (powerOn)
 				{
-					if ((city.cityTime % 26) == 0) { //Every 52 weeks
+					if ((city.scycle % 26) == 0) { //Every 52 weeks
 						city.entertainmentScan();
 					}
 				}
@@ -658,7 +658,7 @@ class MapScanner extends TileBehavior
 				}
 				if (powerOn)
 				{
-					if ((city.cityTime % 26) == 0) { //Every 52 weeks
+					if ((city.scycle % 26) == 0) { //Every 52 weeks
 						city.entertainmentScan();
 					}
 				}

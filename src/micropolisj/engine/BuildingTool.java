@@ -57,6 +57,12 @@ class BuildingTool extends ToolStroke
 			
 		case FASTFOOD:
 			return applyZone(eff, FASTFOOD);
+			
+		case MOVIETHEATERD:
+			return applyZone(eff, MOVIETHEATERD);
+			
+		case FASTFOODD:
+			return applyZone(eff, FASTFOODD);
 
 		default:
 			// not expected
