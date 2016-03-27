@@ -615,10 +615,6 @@ class MapScanner extends TileBehavior
 				if ((city.cityTime % 26) == 0) { //Every 52 weeks
 					city.entertainmentScan();
 				}
-				if ((city.movieTime[xpos][ypos]) > 5 ) {
-					drawStadium(MOVIETHEATERD);
-					city.setTile(xpos+1,ypos, (char)(MOVIETHEATERD));
-				}
 			}
 		 
 	 }
@@ -649,10 +645,6 @@ class MapScanner extends TileBehavior
 				{
 					if ((city.cityTime % 26) == 0) { //Every 52 weeks
 						city.entertainmentScan();
-					}
-					if ((city.fastfoodTime[xpos][ypos]) > 1 ) {
-						drawStadium(FASTFOODD);
-						//city.setTile(xpos+1,ypos, (char)(FASTFOODD));
 					}
 				}
 			 

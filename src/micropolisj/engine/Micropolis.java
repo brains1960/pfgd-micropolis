@@ -1044,9 +1044,15 @@ public class Micropolis
 				if (getTile(y,x) == MOVIETHEATER || getTile(y,x) == MOVIETHEATERD) {
 					movieTime[x][y] += 1;
 					movieEffect += (movieInitial - (movieTime[x][y] *100));
+					if (movieTime[x][y] > 5 ) { 
+						setTile(y,x,MOVIETHEATERD);
+						}
 				} else if (getTile(y,x) == FASTFOOD || getTile(y,x) == FASTFOODD) {
 					fastfoodTime[x][y] += 1;
 					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
+					if (fastfoodTime[x][y] > 5 ) { 
+						setTile(y,x,FASTFOODD);
+						}
 				}
 				
 			}
