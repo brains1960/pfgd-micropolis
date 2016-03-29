@@ -654,7 +654,7 @@ public class Micropolis
 
 		case 12:
 			ptlScan();
-			if (scycle % 26 == 0) {entertainmentScan();}
+			if (scycle % 48 == 0) {entertainmentScan();}
 			break;
 
 		case 13:
