@@ -654,7 +654,7 @@ public class Micropolis
 
 		case 12:
 			ptlScan();
-			if (cityTime % 48 == 0) {entertainmentScan();}
+			if (scycle % 26 == 0) {entertainmentScan();}
 			break;
 
 		case 13:
@@ -1042,26 +1042,23 @@ public class Micropolis
 		for (int x = 0; x < movieTime.length; x++){
 			for (int y = 0; y < movieTime[x].length; y++){
 				if (getTile(y,x) == MOVIETHEATER || getTile(y,x) == MOVIETHEATERD) {
-					movieTime[x][y]++;
+					movieTime[x][y] += 1;
 					movieEffect += (movieInitial - (movieTime[x][y] *100));
-					if (movieTime[x][y] == 6 ) { 
-						sendMessage(MicropolisMessage.VANDALISED_MOVIE);
+					if (movieTime[x][y] > 5 ) { 
 						setTile(y,x,MOVIETHEATERD);
 					}
-					/*if(movieTime[x][y] == 6) {
-						sendMessage(MicropolisMessage.VANDALISED_MOVIE);
-					}*/
-				} else if (getTile(y,x) == FASTFOOD || getTile(y,x) == FASTFOODD) {
-					fastfoodTime[x][y]++;
-					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
-					if (fastfoodTime[x][y] == 3) { 
-						setTile(y,x,FASTFOODD);
-						sendMessage(MicropolisMessage.VANDALISED_FASTFOOD);
+					if(movieTime[x][y] == 6) {
+						sendMessageAt(MicropolisMessage.VANDALISED_MOVIE,x,y);
 					}
-				} else if (movieTime[x][y] > 0) {
-					movieTime[x][y] = 0;
-				} else if (fastfoodTime[x][y] > 0) {
-					fastfoodTime[x][y] = 0;
+				} else if (getTile(y,x) == FASTFOOD || getTile(y,x) == FASTFOODD) {
+					fastfoodTime[x][y] += 1;
+					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
+					if (fastfoodTime[x][y] > 5) { 
+						setTile(y,x,FASTFOODD);
+					}
+					if(movieTime[x][y] == 6) {
+						sendMessageAt(MicropolisMessage.VANDALISED_FASTFOOD,x,y);
+					}
 				}
 				
 			}
