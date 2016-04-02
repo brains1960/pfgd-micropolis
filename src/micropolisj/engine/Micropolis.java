@@ -8,6 +8,7 @@
 
 package micropolisj.engine;
 
+import java.awt.TrayIcon.MessageType;
 import java.io.*;
 import java.util.*;
 
@@ -556,14 +557,6 @@ public class Micropolis
 				policeMap[y][x] = 0;
 			}
 		}
-		
-		for (int y = 0; y < movieTime.length; y++) {
-			for (int x = 0; x< movieTime[y].length; x++) {
-				movieTime[y][x] = 0;
-				fastfoodTime[y][x] = 0;
-			}
-			
-		}
 	}
 
 	void simulate(int mod16)
@@ -654,7 +647,7 @@ public class Micropolis
 
 		case 12:
 			ptlScan();
-			if (scycle % 26 == 0) {entertainmentScan();}
+			if (cityTime % 39 == 0) {entertainmentScan();}
 			break;
 
 		case 13:
@@ -1046,19 +1039,19 @@ public class Micropolis
 					movieEffect += (movieInitial - (movieTime[x][y] *100));
 					if (movieTime[x][y] > 5 ) { 
 						setTile(y,x,MOVIETHEATERD);
-					}
-					if(movieTime[x][y] == 6) {
-						sendMessageAt(MicropolisMessage.VANDALISED_MOVIE,x,y);
-					}
+						sendMessage(MicropolisMessage.VANDALISED_MOVIE);
+						}
 				} else if (getTile(y,x) == FASTFOOD || getTile(y,x) == FASTFOODD) {
 					fastfoodTime[x][y] += 1;
 					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
-					if (fastfoodTime[x][y] > 5) { 
+					if (fastfoodTime[x][y] > 1) { 
 						setTile(y,x,FASTFOODD);
-					}
-					if(movieTime[x][y] == 6) {
-						sendMessageAt(MicropolisMessage.VANDALISED_FASTFOOD,x,y);
-					}
+						sendMessage(MicropolisMessage.VANDALISED_FASTFOOD);
+						}
+				} else if (movieTime[x][y] > 0) {
+					movieTime[x][y] = 0;
+				} else if (fastfoodTime[x][y] > 0) {
+					fastfoodTime[x][y] = 0;
 				}
 				
 			}
