@@ -647,7 +647,7 @@ public class Micropolis
 
 		case 12:
 			ptlScan();
-			if (cityTime % 39 == 0) {entertainmentScan();}
+			if (cityTime % 48 == 0) {entertainmentScan();}
 			break;
 
 		case 13:
@@ -1044,7 +1044,7 @@ public class Micropolis
 				} else if (getTile(y,x) == FASTFOOD || getTile(y,x) == FASTFOODD) {
 					fastfoodTime[x][y] += 1;
 					fastfoodEffect += (fastfoodInitial - (fastfoodTime[x][y] *50));
-					if (fastfoodTime[x][y] > 1) { 
+					if (fastfoodTime[x][y] > 5) { 
 						setTile(y,x,FASTFOODD);
 						sendMessage(MicropolisMessage.VANDALISED_FASTFOOD);
 						}

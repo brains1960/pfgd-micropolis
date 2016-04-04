@@ -607,12 +607,10 @@ class MapScanner extends TileBehavior
 	 void doMovieTheater() {
 		 
 		 boolean powerOn = checkZonePower();
-			if ((city.cityTime % 16) == 0) {
-				repairZone(MOVIETHEATER, 4);
-			}
+			repairZone(MOVIETHEATER, 4);
 			if (powerOn)
 			{
-				if ((city.cityTime % 26) == 0) { //Every 52 weeks
+				if ((city.cityTime % 48) == 0) { //Every 52 weeks
 					city.entertainmentScan();
 				}
 			}
@@ -622,12 +620,10 @@ class MapScanner extends TileBehavior
 	 void doMovieTheaterD() {
 		 
 		 boolean powerOn = checkZonePower();
-			if ((city.cityTime % 16) == 0) {
-				repairZone(MOVIETHEATERD, 4);
-			}
+			repairZone(MOVIETHEATERD, 4);
 			if (powerOn)
 			{
-				if ((city.cityTime % 26) == 0) { //Every 52 weeks
+				if ((city.cityTime % 48) == 0) { //Every 52 weeks
 					city.entertainmentScan();
 				}
 			}
@@ -638,12 +634,10 @@ class MapScanner extends TileBehavior
 		 void doFastFood() {
 			 
 			 boolean powerOn = checkZonePower();
-				if ((city.cityTime % 16) == 0) {
-					repairZone(FASTFOOD, 4);
-				}
+				repairZone(FASTFOOD, 4);
 				if (powerOn)
 				{
-					if ((city.scycle % 26) == 0) { //Every 52 weeks
+					if ((city.cityTime % 48) == 0) { //Every 52 weeks
 						city.entertainmentScan();
 					}
 				}
@@ -653,12 +647,10 @@ class MapScanner extends TileBehavior
 		 void doFastFoodD() {
 			 
 			 boolean powerOn = checkZonePower();
-				if ((city.cityTime % 16) == 0) {
-					repairZone(FASTFOODD, 4);
-				}
+			 	repairZone(FASTFOODD, 4);
 				if (powerOn)
 				{
-					if ((city.scycle % 26) == 0) { //Every 52 weeks
+					if ((city.cityTime % 48) == 0) { //Every 52 weeks
 						city.entertainmentScan();
 					}
 				}
